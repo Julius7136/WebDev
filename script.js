@@ -27,8 +27,33 @@ const observer = new IntersectionObserver(
 
 sections.forEach((section) => observer.observe(section));
 
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        navLinks.forEach((item) => item.classList.remove('active'));
+        link.classList.add('active');
+    });
+});
+
 const copyButton = document.querySelector('.copy-btn');
 const emailText = document.querySelector('.email-text');
+
+const typewriter = document.querySelector('.typewriter');
+if (typewriter) {
+    const text = typewriter.dataset.text || '';
+    typewriter.textContent = '';
+    let index = 0;
+
+    const type = () => {
+        if (index <= text.length) {
+            typewriter.textContent = text.slice(0, index);
+            index += 1;
+            setTimeout(type, 120);
+        }
+    };
+
+    type();
+}
 
 if (copyButton && emailText) {
     copyButton.addEventListener('click', async () => {

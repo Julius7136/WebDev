@@ -37,6 +37,17 @@ body {
     color: #88a3ff;
     font-size: 1.15rem;
     letter-spacing: 1px;
+    transition: transform 0.2s ease;
+}
+
+.logo a {
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.logo:hover {
+    transform: scale(1.5);
 }
 
 .nav-links {
@@ -49,12 +60,19 @@ body {
     color: #dde3ff;
     padding: 0.45rem 0.85rem;
     border-radius: 8px;
+    border: 1px solid transparent;
     transition: all 0.28s ease;
 }
 
 .nav-links a:hover {
     background: rgba(126, 147, 255, 0.16);
     color: #9eb3ff;
+}
+
+.nav-links a.active {
+    background: transparent;
+    color: #9eb3ff;
+    border-color: rgba(126, 147, 255, 0.45);
 }
 
 main {
@@ -88,6 +106,25 @@ main {
     font-size: clamp(2rem, 4.5vw, 3.15rem);
     line-height: 1.1;
     margin-bottom: 1rem;
+    white-space: nowrap;
+}
+
+.typewriter {
+    display: inline-flex;
+    overflow: hidden;
+    white-space: nowrap;
+    min-width: max-content;
+    border-right: 2px solid #9eb3ff;
+    animation: blinkCursor 0.8s steps(1) infinite;
+}
+
+@keyframes blinkCursor {
+    0%, 100% {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #9eb3ff;
+    }
 }
 
 .subtitle {
