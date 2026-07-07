@@ -19,7 +19,7 @@ body {
     position: sticky;
     top: 0;
     z-index: 100;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(9px);
     background: rgba(10, 11, 20, 0.75);
     border-bottom: 1px solid rgba(141, 154, 255, 0.2);
 }
@@ -185,6 +185,79 @@ h3 {
     gap: 1rem;
 }
 
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(230px, 1fr));
+    gap: 1rem;
+}
+
+.contact-grid article:first-child {
+    grid-column: 1 / -1;
+}
+
+.contact-grid article {
+    text-align: center;
+}
+
+.email-card {
+    cursor: default;
+}
+
+.email-card:hover {
+    transform: none;
+}
+
+.contact-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.email-label {
+    margin: 0;
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+}
+
+.email-text {
+    margin-left: 0.2rem;
+}
+
+.contact-grid article a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: inherit;
+    text-decoration: none;
+}
+
+.contact-grid article a p {
+    margin: 0;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    border: 1px solid rgba(141, 154, 255, 0.25);
+    background: rgba(126, 147, 255, 0.08);
+    color: #dde3ff;
+    padding: 0.45rem 0.7rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.24s ease, border-color 0.24s ease, color 0.24s ease;
+}
+
+.copy-btn:hover {
+    background: rgba(123, 148, 255, 0.2);
+    border-color: rgba(141, 154, 255, 0.45);
+}
+
 .skill-card,
 .project-card {
     background: rgba(19, 21, 38, 0.9);
@@ -311,6 +384,17 @@ h3 {
 
 .section.show {
     animation: riseIn 0.65s ease both;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    color: #9ba7d6;
 }
 
 @keyframes pulse {

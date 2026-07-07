@@ -26,3 +26,20 @@ const observer = new IntersectionObserver(
 );
 
 sections.forEach((section) => observer.observe(section));
+
+const copyButton = document.querySelector('.copy-btn');
+const emailText = document.querySelector('.email-text');
+
+if (copyButton && emailText) {
+    copyButton.addEventListener('click', async () => {
+        try {
+            await navigator.clipboard.writeText(emailText.textContent.trim());
+            copyButton.textContent = 'Copied!';
+            setTimeout(() => {
+                copyButton.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
+            }, 1500);
+        } catch (error) {
+            console.error('Copy failed:', error);
+        }
+    });
+}
