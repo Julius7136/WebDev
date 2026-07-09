@@ -28,12 +28,28 @@ const observer = new IntersectionObserver(
 sections.forEach((section) => observer.observe(section));
 
 const navLinks = document.querySelectorAll('.nav-links a');
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-links');
+
 navLinks.forEach((link) => {
     link.addEventListener('click', () => {
         navLinks.forEach((item) => item.classList.remove('active'));
         link.classList.add('active');
+        if (navMenu) {
+            navMenu.classList.remove('open');
+        }
+        if (menuToggle) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
     });
 });
+
+if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', () => {
+        const isOpen = navMenu.classList.toggle('open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+}
 
 const copyButton = document.querySelector('.copy-btn');
 const emailText = document.querySelector('.email-text');
